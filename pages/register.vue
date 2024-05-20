@@ -23,9 +23,6 @@ const togglePasswordVisibility = () => {
   isPasswordVisible.value = !isPasswordVisible.value;
 };
 
-definePageMeta({
-  middleware: "auth",
-});
 </script>
 
 <style lang="scss" scoped></style>
