@@ -43,24 +43,4 @@ const togglePasswordVisibility = () => {
 definePageMeta({
   middleware: "auth",
 });
-const client = useSupabaseClient();
-const router = useRouter();
-
-const email = ref('msdmunna77@gmail.com');
-const password = ref('username');
-const errMsg = ref(null);
-const succMsg = ref(null);
-async function signIn() {
-  try {
-    const { error } = await client.auth.signInWithPassword({
-      email: email.value,
-      password: password.value,
-    });
-    if (error) throw error;
-    succMsg.value = "successfully logged in";
-    router.push("/");
-  } catch (error) {
-    errMsg.value = error.message;
-  }
-}
 </script>

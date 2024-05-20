@@ -18,20 +18,6 @@ import { useFormattedDate } from '../../composables/useFormattedDate';
 definePageMeta({
   middleware: "auth",
 });
-const user = useSupabaseUser();
-const client = useSupabaseClient();
-const router = useRouter();
-const error = ref(null);
-console.log(user.email);
-async function logout() {
-  try {
-    const { error } = await client.auth.signOut();
-    if (error) throw error;
-    router.push("/login");
-  } catch (error) {
-    error.value = error.message;
-  }
-}
 
 const { formattedDate } = useFormattedDate();
 </script>

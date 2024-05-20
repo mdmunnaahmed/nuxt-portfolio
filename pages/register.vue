@@ -26,24 +26,6 @@ const togglePasswordVisibility = () => {
 definePageMeta({
   middleware: "auth",
 });
-const client = useSupabaseClient();
-const email = ref("");
-const password = ref(null);
-const errMsg = ref(null);
-const succMsg = ref(null);
-async function signUp() {
-  try {
-    const { data, error } = await client.auth.signUp({
-      email: email.value,
-      password: password.value,
-    });
-    if (error) throw error;
-    succMsg.value = "Please check your mail to confirm signup process";
-  } catch (error) {
-    errMsg.value = error.message;
-    console.log(error);
-  }
-}
 </script>
 
 <style lang="scss" scoped></style>

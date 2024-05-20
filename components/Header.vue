@@ -28,10 +28,8 @@ import { useAuthStore } from "~/stores/authStore";
 export default {
   setup() {
     const authStore = useAuthStore();
-    const user = useSupabaseUser();
     return {
       authStore,
-      user,
     };
   },
 };
